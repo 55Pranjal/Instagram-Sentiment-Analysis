@@ -36,7 +36,7 @@ print("[+] Scaler + LabelEncoder saved")
 print("\n[1] Training Logistic Regression...")
 X_train,X_test,y_train,y_test = train_test_split(
     X_scaled,y,test_size=0.25,random_state=42,stratify=y)
-lr = LogisticRegression(max_iter=1000,random_state=42,C=1.0)
+lr = LogisticRegression(max_iter=1000, random_state=42, C=1.0, class_weight='balanced')
 lr.fit(X_train,y_train)
 y_pred = lr.predict(X_test)
 lr_acc = accuracy_score(y_test,y_pred)
